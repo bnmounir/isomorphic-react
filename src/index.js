@@ -13,7 +13,7 @@ app.use(
     proxy('http://react-ssr-api.herokuapp.com', {
         proxyReqOptDecorator(opts) {
             opts.headers['x-forwarded-host'] =
-                'https://isomorphic-react-bnmounir.herokuapp.com';
+                'isomorphic-react-bnmounir.herokuapp.com';
             return opts;
         }
     })
@@ -49,5 +49,5 @@ app.get('*', (req, res) => {
 });
 
 app.listen(process.env.PORT, () => {
-    console.log('listening');
+    console.log('listening...');
 });
