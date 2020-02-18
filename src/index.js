@@ -10,7 +10,7 @@ const app = express();
 
 app.use(
     '/api',
-    proxy('http://react-ssr-api.herokuapp.com', {
+    proxy('https://ssr-api-bnmounir.herokuapp.com', {
         proxyReqOptDecorator(opts) {
             opts.headers['x-forwarded-host'] =
                 'isomorphic-react-bnmounir.herokuapp.com';
@@ -48,6 +48,5 @@ app.get('*', (req, res) => {
     });
 });
 
-app.listen(process.env.PORT, () => {
-    console.log('listening...');
-});
+const PORT = process.env.PORT || 3000;
+app.listen(PORT);
